@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rakhi Gifts</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #ffe6f0;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    color: #d6336c;
+    margin-top: 20px;
+  }
+
+  .envelope {
+    width: 200px;
+    height: 120px;
+    margin: 40px auto;
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+  }
+
+  .flap {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 60px solid #ff4d6d;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: top;
+    transition: transform 0.8s ease;
+    z-index: 2;
+  }
+
+  .body {
+    width: 200px;
+    height: 120px;
+    background: #ff758f;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .envelope.open .flap {
+    transform: rotateX(180deg);
+  }
+
+  .gifts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin: 20px auto;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .envelope.open + .gifts {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .gift {
+    font-size: 3rem;
+    cursor: pointer;
+    animation: bounce 1s ease infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .quote {
+    font-style: italic;
+    margin: 20px auto;
+    max-width: 500px;
+    font-size: 1.2rem;
+    color: #5a189a;
+  }
+</style>
+</head>
+<body>
+
+<h1>💌 Rakhi Gifts for Honey akka 💌</h1>
+
+<div class="envelope" id="envelope">
+  <div class="flap"></div>
+  <div class="body"></div>
+</div>
+
+<div class="gifts">
+  <div class="gift" onclick="alert('A box of chocolates for Honey akka 🍫')">🍫</div>
+  <div class="gift" onclick="alert('A bouquet of flowers for Honey akka 💐')">💐</div>
+  <div class="gift" onclick="alert('A lovely teddy bear for Honey akka 🧸')">🧸</div>
+  <div class="gift" onclick="alert('A surprise gift box for Honey akka 🎁')">🎁</div>
+</div>
+
+<div class="quote">
+  Thank you, Honey akka, for always protecting me and being my best friend in every phase of life. 💖  
+  <br><br>
+  "Brothers and sisters are as close as hands and feet."  
+  <br>
+  "A sister is a gift to the heart, a friend to the spirit, a golden thread to the meaning of life."
+</div>
+
+<script>
+  const envelope = document.getElementById('envelope');
+  envelope.addEventListener('click', () => {
+    envelope.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
